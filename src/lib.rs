@@ -16,12 +16,14 @@ pub struct BBox {
 impl BBox {
     /// Returns the bbox width.
     #[inline]
+    #[must_use = "Use the width value"]
     pub fn width(&self) -> f32 {
         self.x_max - self.x_min
     }
 
     /// Returns the bbox height.
     #[inline]
+    #[must_use = "Use the height value"]
     pub fn height(&self) -> f32 {
         self.y_max - self.y_min
     }
@@ -39,18 +41,22 @@ impl BBox {
 /// A glyph outline.
 #[derive(Debug, Clone)]
 pub struct Outline {
+    /// The bounding box
     bbox: std::cell::Cell<Option<BBox>>,
+    // Is it in Compact Font Format 1/2
     cff: bool,
     contours: Vec<Contour>,
 }
 
 impl Outline {
     /// Returns a new outline or `None` when the glyph has no outline or on error.
+    #[must_use]
     pub fn new(face: &ttf_parser::Face, glyph_id: ttf_parser::GlyphId) -> Option<Self> {
         let mut outline = Outline {
             bbox: std::cell::Cell::new(None),
-            cff: face.has_table(ttf_parser::TableName::CompactFontFormat)
-                || face.has_table(ttf_parser::TableName::CompactFontFormat2),
+            // Compact Font Format 1/2
+            cff: face.tables().cff.is_some()
+                || face.tables().cff2.is_some(),
             contours: Vec::new(),
         };
         let mut outline_builder = OutlineBuilder::new(&mut outline);
@@ -239,7 +245,7 @@ struct Point {
 
 impl Point {
     #[inline]
-    fn new(x: f32, y: f32) -> Self {
+    const fn new(x: f32, y: f32) -> Self {
         Self { x, y }
     }
 }
@@ -268,7 +274,7 @@ impl<'a> OutlineBuilder<'a> {
     }
 }
 
-impl<'a> ttf_parser::OutlineBuilder for OutlineBuilder<'a> {
+impl ttf_parser::OutlineBuilder for OutlineBuilder<'_> {
     fn move_to(&mut self, x: f32, y: f32) {
         let c = self.current_contour();
         c.verbs.push(PathVerb::MoveTo);
