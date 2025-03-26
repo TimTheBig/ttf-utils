@@ -2,7 +2,7 @@
 name = "ttf-parser-utils"
 version = "0.1.0"
 edition = "2021"
-authors = ["Christer Sandberg <chrsan@gmail.com>"]
+authors = ["Christer Sandberg <chrsan@gmail.com>", "TimTheBig"]
 keywords = ["ttf", "truetype", "otf", "opentype", "font"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/TimTheBig/ttf-utils"
