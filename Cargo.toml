@@ -1,12 +1,12 @@
 [package]
-name = "ttf-utils2"
-version = "2.0.0"
+name = "ttf-parser-utils"
+version = "0.1.0"
 edition = "2021"
 authors = ["Christer Sandberg <chrsan@gmail.com>"]
 keywords = ["ttf", "truetype", "otf", "opentype", "font"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/TimTheBig/ttf-utils"
-description = "ttf-parser utils"
+description = "A crate with embolden, slant, and modify bbox utils for ttf-parser"
 readme = "README.md"
 rust-version = "1.78.0"
 
