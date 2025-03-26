@@ -1,7 +1,7 @@
 # ttf-utils
 
-[![Crates.io](https://img.shields.io/crates/v/ttf-utils2.svg)](https://crates.io/crates/ttf-utils2)
-[![Documentation](https://docs.rs/ttf-utils2/badge.svg)](https://docs.rs/ttf-utils2)
+[![Crates.io](https://img.shields.io/crates/v/ttf-parser-utils.svg)](https://crates.io/crates/ttf-parser-utils)
+[![Documentation](https://docs.rs/ttf-parser-utils/badge.svg)](https://docs.rs/ttf-parser-utils)
 
 Post-processing utilities for [ttf-parser](https://github.com/RazrFalcon/ttf-parser).
 
@@ -13,13 +13,15 @@ Embolden and slant a glyph outline.
 let face = ttf_parser::Face::from_slice(&font_data, 0)
   .unwrap();
 let glyph_id = face.glyph_index('c').unwrap();
-let mut outline = ttf_utils::Outline::new(&face, glyph_id).unwrap();
+let mut outline = ttf_parser_utils::Outline::new(&face, glyph_id).unwrap();
 outline.embolden(20.0);
 outline.oblique(0.25);
 outline.emit(&mut builder);
 ```
 
 ## Credits
+
+This is an updated fork of [ttf-utils](https://github.com/chrsan/ttf-utils).
 
 The embolden algorithm is derived from the algorithm in
 [FreeType](https://www.freetype.org).
