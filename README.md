@@ -1,7 +1,7 @@
 # ttf-utils
 
-[![Crates.io](https://img.shields.io/crates/v/ttf-utils.svg)](https://crates.io/crates/ttf-utils)
-[![Documentation](https://docs.rs/ttf-utils/badge.svg)](https://docs.rs/ttf-utils)
+[![Crates.io](https://img.shields.io/crates/v/ttf-utils2.svg)](https://crates.io/crates/ttf-utils2)
+[![Documentation](https://docs.rs/ttf-utils2/badge.svg)](https://docs.rs/ttf-utils2)
 
 Post-processing utilities for [ttf-parser](https://github.com/RazrFalcon/ttf-parser).
 
@@ -10,7 +10,8 @@ Post-processing utilities for [ttf-parser](https://github.com/RazrFalcon/ttf-par
 Embolden and slant a glyph outline.
 
 ```rust
-let face = ttf_parser::Face::from_slice(&font_data, 0).unwrap();
+let face = ttf_parser::Face::from_slice(&font_data, 0)
+  .unwrap();
 let glyph_id = face.glyph_index('c').unwrap();
 let mut outline = ttf_utils::Outline::new(&face, glyph_id).unwrap();
 outline.embolden(20.0);

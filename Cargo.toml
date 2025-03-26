@@ -1,11 +1,11 @@
 [package]
-name = "ttf-utils"
+name = "ttf-utils2"
 version = "0.1.4"
 edition = "2021"
 authors = ["Christer Sandberg <chrsan@gmail.com>"]
-keywords = ["ttf", "truetype", "otf", "opentype"]
+keywords = ["ttf", "truetype", "otf", "opentype", "font"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/chrsan/ttf-utils"
+repository = "https://github.com/TimTheBig/ttf-utils"
 description = "ttf-parser utils"
 readme = "README.md"
 rust-version = "1.78.0"
@@ -13,7 +13,7 @@ rust-version = "1.78.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ttf-parser = { version = "^0.25", default-features = true }
+ttf-parser = { version = "0.25", default-features = true }
 
 [dev-dependencies]
 structopt = "0.3"

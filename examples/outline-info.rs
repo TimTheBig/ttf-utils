@@ -3,9 +3,9 @@ use structopt::StructOpt;
 fn main() {
     let opt = Opt::from_args();
     let font_data = std::fs::read(&opt.font_file).unwrap();
-    let face = ttf_parser::Face::from_slice(&font_data, opt.face_index).unwrap();
+    let face = ttf_parser::Face::parse(&font_data, opt.face_index).unwrap();
     let glyph_id = face.glyph_index(opt.character).unwrap();
-    let mut outline = ttf_utils::Outline::new(&face, glyph_id).unwrap();
+    let mut outline = ttf_utils2::Outline::new(&face, glyph_id).unwrap();
     if opt.embolden {
         outline.embolden(20.0);
     }
