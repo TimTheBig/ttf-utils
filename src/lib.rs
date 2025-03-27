@@ -55,8 +55,7 @@ impl Outline {
         let mut outline = Outline {
             bbox: std::cell::Cell::new(None),
             // Compact Font Format 1/2
-            cff: face.tables().cff.is_some()
-                || face.tables().cff2.is_some(),
+            cff: face.tables().cff.is_some() || face.tables().cff2.is_some(),
             contours: Vec::new(),
         };
         let mut outline_builder = OutlineBuilder::new(&mut outline);
