@@ -1,4 +1,4 @@
-//! `ttf-parser` utils.
+//! `ttf-parser` utils, to embolden, slant, and modify bboxs.
 
 /// A bounding box.
 #[derive(Debug, Default, Clone, Copy, PartialEq)]
