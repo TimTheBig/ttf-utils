@@ -1,6 +1,6 @@
 [package]
 name = "ttf-parser-utils"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Christer Sandberg <chrsan@gmail.com>", "TimTheBig"]
 keywords = ["ttf", "truetype", "otf", "opentype", "font"]
